@@ -15,8 +15,8 @@ struct ConverterView: View {
     
     @State var outputTemp: Double = 0
     
-    if inputTemp = String
-        
+    @State var feedback = ""
+    
     
     
     var body: some View {
@@ -26,23 +26,32 @@ struct ConverterView: View {
                 .font(.largeTitle)
             HStack{
                 
-                TextField("Degrees in F", text: $inputTemp)
+                TextField("Degrees in Fahrenheit", text: $inputTemp)
                     .padding()
                 Button{
-                    
+                    convert()
                 } label: {
                     Text("CONFIRM")
                         .padding()
                 }
-            
+            }
+            VStack{
+                Text("Passed covertions")
+                    .font(.title3.smallCaps())
+                
             }
         }
     }
-    
-    
-    
-}
+    func convert() {
+        
+        guard let currentUse = Int(inputTemp) else {
+            feedback = "Please provide an integer."
+            return
 
+        }
+        
+    }
+}
 #Preview {
     ConverterView()
 }

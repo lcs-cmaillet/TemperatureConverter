@@ -11,24 +11,36 @@ import SwiftUI
 
 struct ConverterView: View {
     
-    @State var inputTemp: Double = 0
+    @State var inputTemp: String = ""
     
-    @State var outputTemp: Double = -17.7778
+    @State var outputTemp: Double = 0
+    
+    if inputTemp = String
+        
+    
     
     var body: some View {
         VStack{
-          
+            
             Text("Temperature")
                 .font(.largeTitle)
+            HStack{
+                
+                TextField("Degrees in F", text: $inputTemp)
+                    .padding()
+                Button{
+                    
+                } label: {
+                    Text("CONFIRM")
+                        .padding()
+                }
             
-            Text("Temperature Converter")
-                .font(.largeTitle)
-            TextField("Input Temperature in Fahrenheit", text: $inputTemp)
-            Button {
-            } label: {
-                Text("Submit")
+            }
         }
     }
+    
+    
+    
 }
 
 #Preview {
